@@ -134,13 +134,13 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
         }
 
         scrollView.showsVerticalScrollIndicator = (options?.showsVerticalScrollIndicator)!
-        
+
         if (options?.enableViewportScale)! {
             let jscript = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
             let userScript = WKUserScript(source: jscript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
             configuration.userContentController.addUserScript(userScript)
         }
-        
+
         // Prevents long press on links that cause WKWebView exit
         let jscriptWebkitTouchCallout = WKUserScript(source: "document.body.style.webkitTouchCallout='none';", injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         configuration.userContentController.addUserScript(jscriptWebkitTouchCallout)
@@ -333,7 +333,7 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
         if newOptionsMap["showsVerticalScrollIndicator"] != nil && options?.showsVerticalScrollIndicator != newOptions.showsVerticalScrollIndicator {
             scrollView.showsVerticalScrollIndicator = !newOptions.showsVerticalScrollIndicator
         }
-        
+
         if newOptionsMap["enableViewportScale"] != nil && options?.enableViewportScale != newOptions.enableViewportScale && newOptions.enableViewportScale {
             let jscript = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
             evaluateJavaScript(jscript, completionHandler: nil)

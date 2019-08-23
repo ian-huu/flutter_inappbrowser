@@ -192,6 +192,8 @@ public class InAppWebView extends WebView {
       setBackgroundColor(Color.TRANSPARENT);
     }
 
+    setVerticalScrollBarEnabled(newOptions.showsVerticalScrollIndicator);
+
     if (!options.mixedContentMode.isEmpty()) {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
         if (options.mixedContentMode.equals("MIXED_CONTENT_COMPATIBILITY_MODE")) {
@@ -365,6 +367,10 @@ public class InAppWebView extends WebView {
       } else {
         setBackgroundColor(Color.parseColor("#FFFFFF"));
       }
+    }
+
+    if (newOptionsMap.get("showsVerticalScrollIndicator") != null && options.showsVerticalScrollIndicator != newOptions.showsVerticalScrollIndicator) {
+      setVerticalScrollBarEnabled(newOptions.showsVerticalScrollIndicator);
     }
 
     if (newOptionsMap.get("mixedContentMode") != null && options.mixedContentMode != newOptions.mixedContentMode) {

@@ -24,5 +24,6 @@ public class InAppWebViewOptions extends Options {
   public boolean useWideViewPort = true;
   public boolean safeBrowsingEnabled = true;
   public boolean transparentBackground = false;
+  public boolean showsVerticalScrollIndicator = true;
   public String mixedContentMode = "";
 }

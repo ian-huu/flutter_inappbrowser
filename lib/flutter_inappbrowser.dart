@@ -585,6 +585,7 @@ class InAppWebViewInitialData {
 ///  - __javaScriptCanOpenWindowsAutomatically__: Set to `true` to allow JavaScript open windows without user interaction. The default value is `false`.
 ///  - __mediaPlaybackRequiresUserGesture__: Set to `true` to prevent HTML5 audio or video from autoplaying. The default value is `true`.
 ///  - __transparentBackground__: Set to `true` to make the background of the WebView transparent. If your app has a dark theme, this can prevent a white flash on initialization. The default value is `false`.
+///  - __showsVerticalScrollIndicator__: Set to `false` to hide the scroll bar. The default value is `true`.
 ///
 ///  **Android** supports these additional options:
 ///
@@ -610,7 +611,6 @@ class InAppWebViewInitialData {
 ///  - __ignoresViewportScaleLimits__: Set to `true` if you want that the WebView should always allow scaling of the webpage, regardless of the author's intent. The ignoresViewportScaleLimits property overrides the `user-scalable` HTML property in a webpage. The default value is `false`.
 ///  - __allowsInlineMediaPlayback__: Set to `true` to allow HTML5 media playback to appear inline within the screen layout, using browser-supplied controls rather than native controls. For this to work, add the `webkit-playsinline` attribute to any `<video>` elements. The default value is `false`.
 ///  - __allowsPictureInPictureMediaPlayback__: Set to `true` to allow HTML5 videos play picture-in-picture. The default value is `true`.
-///  - __showsVerticalScrollIndicator__: Set to `false` to hide the scroll bar. The default value is `true`.
 class InAppWebView extends StatefulWidget {
 
   ///Event fires when the [InAppWebView] is created.
