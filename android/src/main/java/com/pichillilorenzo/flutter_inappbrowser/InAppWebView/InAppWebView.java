@@ -192,7 +192,7 @@ public class InAppWebView extends WebView {
       setBackgroundColor(Color.TRANSPARENT);
     }
 
-    setVerticalScrollBarEnabled(newOptions.showsVerticalScrollIndicator);
+    setVerticalScrollBarEnabled(options.showsVerticalScrollIndicator);
 
     if (!options.mixedContentMode.isEmpty()) {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
