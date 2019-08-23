@@ -29,6 +29,7 @@ public class InAppWebViewOptions: Options {
     var allowsInlineMediaPlayback = false
     var allowsPictureInPictureMediaPlayback = true
     var transparentBackground = false
+    var showsVerticalScrollIndicator = true
     
     override init(){
         super.init()

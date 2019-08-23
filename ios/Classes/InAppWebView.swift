@@ -132,6 +132,10 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
                 }
             }
         }
+
+        if (options?.showsVerticalScrollIndicator)! {
+            scrollView.showsVerticalScrollIndicator = false
+        }
         
         if (options?.enableViewportScale)! {
             let jscript = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
@@ -326,6 +330,10 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
                     }
                 }
             }
+        }
+
+        if newOptionsMap["showsVerticalScrollIndicator"] != nil && options?.showsVerticalScrollIndicator != newOptions.showsVerticalScrollIndicator {
+            scrollView.showsVerticalScrollIndicator = !newOptions.showsVerticalScrollIndicator
         }
         
         if newOptionsMap["enableViewportScale"] != nil && options?.enableViewportScale != newOptions.enableViewportScale && newOptions.enableViewportScale {
