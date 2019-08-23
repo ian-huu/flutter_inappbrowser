@@ -133,9 +133,7 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
             }
         }
 
-        if (options?.showsVerticalScrollIndicator)! {
-            scrollView.showsVerticalScrollIndicator = false
-        }
+        scrollView.showsVerticalScrollIndicator = (options?.showsVerticalScrollIndicator)!
         
         if (options?.enableViewportScale)! {
             let jscript = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
