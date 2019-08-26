@@ -524,6 +524,10 @@ class ChromeSafariBrowser {
 
   }
 
+  void setOpened(bool isOpened) {
+    this._isOpened = isOpened;
+  }
+
   bool isOpened() {
     return this._isOpened;
   }
