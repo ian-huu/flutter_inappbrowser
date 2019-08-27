@@ -192,6 +192,9 @@ class InAppBrowserWebViewController: UIViewController, UIScrollViewDelegate, WKU
         
         self.webView.options = webViewOptions
         self.webView.prepare()
+        if (browserOptions?.backgroundColor != "") {
+            self.view.backgroundColor = color(fromHexString: (browserOptions?.backgroundColor)!);
+        }
         
         if (browserOptions?.hideUrlBar)! {
             self.urlField.isHidden = true

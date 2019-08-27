@@ -16,6 +16,7 @@ public class InAppBrowserOptions: Options {
     var toolbarTopFixedTitle = ""
     var hideUrlBar = false
     
+    var backgroundColor = ""
     var toolbarBottom = true
     var toolbarBottomBackgroundColor = ""
     var toolbarBottomTranslucent = true
