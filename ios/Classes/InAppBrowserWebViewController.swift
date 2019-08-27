@@ -204,6 +204,8 @@ class InAppBrowserWebViewController: UIViewController, UIScrollViewDelegate, WKU
         if (browserOptions?.toolbarTop)! {
             if browserOptions?.toolbarTopBackgroundColor != "" {
                 self.toolbarTop.backgroundColor = color(fromHexString: (browserOptions?.toolbarTopBackgroundColor)!)
+            } else {
+                self.toolbarTop.backgroundColor = self.view.backgroundColor
             }
         }
         else {
@@ -216,6 +218,8 @@ class InAppBrowserWebViewController: UIViewController, UIScrollViewDelegate, WKU
         if (browserOptions?.toolbarBottom)! {
             if browserOptions?.toolbarBottomBackgroundColor != "" {
                 self.toolbarBottom.backgroundColor = color(fromHexString: (browserOptions?.toolbarBottomBackgroundColor)!)
+            } else {
+                self.toolbarBottom.backgroundColor = self.view.backgroundColor
             }
             self.toolbarBottom.isTranslucent = (browserOptions?.toolbarBottomTranslucent)!
         }
