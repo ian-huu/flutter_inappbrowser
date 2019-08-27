@@ -417,6 +417,13 @@ class InAppBrowser {
 
   }
 
+  dynamic injectScriptCode(String code) async {
+    Map<String, dynamic> args = <String, dynamic>{};
+    args.putIfAbsent('uuid', () => uuid);
+    args.putIfAbsent('source', () => code);
+    return _ChannelManager.channel.invokeMethod('injectScriptCode', args);
+  }
+
   void _throwIsAlreadyOpened({String message = ''}) {
     if (this.isOpened()) {
       throw Exception(['Error: ${ (message.isEmpty) ? '' : message + ' '}The browser is already opened.']);
@@ -530,6 +537,13 @@ class ChromeSafariBrowser {
 
   bool isOpened() {
     return this._isOpened;
+  }
+
+  dynamic injectScriptCode(String code) async {
+    Map<String, dynamic> args = <String, dynamic>{};
+    args.putIfAbsent('uuid', () => uuid);
+    args.putIfAbsent('source', () => code);
+    return _ChannelManager.channel.invokeMethod('injectScriptCode', args);
   }
 
   void _throwIsAlreadyOpened({String message = ''}) {
