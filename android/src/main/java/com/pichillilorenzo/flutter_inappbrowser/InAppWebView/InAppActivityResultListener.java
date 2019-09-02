@@ -27,7 +27,7 @@ public class InAppActivityResultListener implements ActivityResultListener {
     }
 
     private void pickPhotoResult(int resultCode, Intent data) {
-        Uri uri = data.getData();
+        Uri uri = data != null ? data.getData() : null;
         if (resultCode == Activity.RESULT_CANCELED || uri == null) {
             if (webView.inAppWebChromeClient.mUploadMessage != null) {
                 webView.inAppWebChromeClient.mUploadMessage.onReceiveValue(null);
