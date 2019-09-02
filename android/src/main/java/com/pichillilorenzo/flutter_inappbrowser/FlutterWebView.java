@@ -32,8 +32,8 @@ public class FlutterWebView implements PlatformView, MethodCallHandler  {
   public MethodChannel channel;
   public final Registrar registrar;
 
+  @SuppressWarnings("unchecked")
   public FlutterWebView(Registrar registrar, int id, HashMap<String, Object> params) {
-
     this.registrar = registrar;
     this.activity = registrar.activity();
 
@@ -79,7 +79,26 @@ public class FlutterWebView implements PlatformView, MethodCallHandler  {
     return webView;
   }
 
+  // @Override
+  // This is overriding a method that hasn't rolled into stable Flutter yet. Including the
+  // annotation would cause compile time failures in versions of Flutter too old to include the new
+  // method. However leaving it raw like this means that the method will be ignored in old versions
+  // of Flutter but used as an override anyway wherever it's actually defined.
+  public void onInputConnectionUnlocked() {
+    webView.unlockInputConnection();
+  }
+
+  // @Override
+  // This is overriding a method that hasn't rolled into stable Flutter yet. Including the
+  // annotation would cause compile time failures in versions of Flutter too old to include the new
+  // method. However leaving it raw like this means that the method will be ignored in old versions
+  // of Flutter but used as an override anyway wherever it's actually defined.
+  public void onInputConnectionLocked() {
+    webView.lockInputConnection();
+  }
+
   @Override
+  @SuppressWarnings("unchecked")
   public void onMethodCall(MethodCall call, Result result) {
     String source;
     String urlFile;

@@ -36,7 +36,7 @@ import io.flutter.plugin.common.PluginRegistry;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 
-public class InAppWebView extends WebView {
+public class InAppWebView extends InputAwareWebView {
 
   static final String LOG_TAG = "InAppWebView";
 
@@ -79,20 +79,8 @@ public class InAppWebView extends WebView {
 
   static final String platformReadyJS = "window.dispatchEvent(new Event('flutterInAppBrowserPlatformReady'));";
 
-  public InAppWebView(Context context) {
-    super(context);
-  }
-
-  public InAppWebView(Context context, AttributeSet attrs) {
-    super(context, attrs);
-  }
-
-  public InAppWebView(Context context, AttributeSet attrs, int defaultStyle) {
-    super(context, attrs, defaultStyle);
-  }
-
   public InAppWebView(PluginRegistry.Registrar registrar, Object obj, int id, InAppWebViewOptions options) {
-    super(registrar.activeContext());
+    super(registrar.activeContext(), registrar.view());
     this.registrar = registrar;
     if (obj instanceof InAppBrowserActivity)
       this.inAppBrowserActivity = (InAppBrowserActivity) obj;
