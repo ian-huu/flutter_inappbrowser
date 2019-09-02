@@ -24,14 +24,15 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
 public class InAppWebChromeClient extends WebChromeClient {
+  public final static int FILECHOOSER_RESULTCODE = 1;
+  public final static int PHOTOTAKER_RESULTCODE = 2;
+  public ValueCallback<Uri[]> mUploadMessageArray;
+  public ValueCallback<Uri> mUploadMessage;
 
   protected static final String LOG_TAG = "IABWebChromeClient";
   private PluginRegistry.Registrar registrar;
   private FlutterWebView flutterWebView;
   private InAppBrowserActivity inAppBrowserActivity;
-  private ValueCallback<Uri[]> mUploadMessageArray;
-  private ValueCallback<Uri> mUploadMessage;
-  private final static int FILECHOOSER_RESULTCODE = 1;
 
   private View mCustomView;
   private WebChromeClient.CustomViewCallback mCustomViewCallback;
@@ -170,9 +171,6 @@ public class InAppWebChromeClient extends WebChromeClient {
   public boolean onShowFileChooser(
           WebView webView, ValueCallback<Uri[]> filePathCallback,
           FileChooserParams fileChooserParams) {
-    if (mUploadMessageArray != null) {
-      mUploadMessageArray.onReceiveValue(null);
-    }
     mUploadMessageArray = filePathCallback;
 
     Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);

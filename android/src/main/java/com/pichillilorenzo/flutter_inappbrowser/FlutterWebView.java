@@ -10,6 +10,7 @@ import android.webkit.WebViewClient;
 
 import com.pichillilorenzo.flutter_inappbrowser.InAppWebView.InAppWebView;
 import com.pichillilorenzo.flutter_inappbrowser.InAppWebView.InAppWebViewOptions;
+import com.pichillilorenzo.flutter_inappbrowser.InAppWebView.InAppActivityResultListener;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -47,6 +48,7 @@ public class FlutterWebView implements PlatformView, MethodCallHandler  {
 
     webView = new InAppWebView(registrar, this, id, options);
     webView.prepare();
+    registrar.addActivityResultListener(new InAppActivityResultListener(webView));
 
     channel = new MethodChannel(registrar.messenger(), "com.pichillilorenzo/flutter_inappwebview_" + id);
     channel.setMethodCallHandler(this);

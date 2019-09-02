@@ -45,7 +45,7 @@ public class InAppWebView extends WebView {
   public FlutterWebView flutterWebView;
   int id;
   InAppWebViewClient inAppWebViewClient;
-  InAppWebChromeClient inAppWebChromeClient;
+  public InAppWebChromeClient inAppWebChromeClient;
   public InAppWebViewOptions options;
   public boolean isLoading = false;
   OkHttpClient httpClient;
