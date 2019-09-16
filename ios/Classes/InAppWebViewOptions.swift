@@ -14,7 +14,7 @@ public class InAppWebViewOptions: Options {
     var useOnLoadResource = false
     var clearCache = false
     var userAgent = ""
-    var applicationNameForUserAgent = ""
+    var appendUserAgent = ""
     var javaScriptEnabled = true
     var javaScriptCanOpenWindowsAutomatically = false
     var mediaPlaybackRequiresUserGesture = true

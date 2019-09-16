@@ -188,9 +188,9 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
             }
         }
 
-        if ((options?.applicationNameForUserAgent)! != "") {
+        if ((options?.appendUserAgent)! != "") {
             if #available(iOS 9.0, *) {
-                configuration.applicationNameForUserAgent =  (options?.applicationNameForUserAgent)!
+                customUserAgent = (UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? "") + (options?.appendUserAgent)!
             }
         }
         
@@ -406,6 +406,12 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
             }
         }
         
+        if newOptionsMap["appendUserAgent"] != nil && options?.appendUserAgent != newOptions.appendUserAgent && (newOptions.appendUserAgent != "") {
+            if #available(iOS 9.0, *) {
+                customUserAgent = (UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? "") + newOptions.appendUserAgent
+            }
+        }
+
         if newOptionsMap["clearCache"] != nil && newOptions.clearCache {
             clearCache()
         }
