@@ -190,7 +190,7 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
 
         if ((options?.appendUserAgent)! != "") {
             if #available(iOS 9.0, *) {
-                customUserAgent = (UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? "") + (options?.appendUserAgent)!
+                customUserAgent = (UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? "") + " " + (options?.appendUserAgent)!
             }
         }
         
@@ -408,7 +408,7 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
         
         if newOptionsMap["appendUserAgent"] != nil && options?.appendUserAgent != newOptions.appendUserAgent && (newOptions.appendUserAgent != "") {
             if #available(iOS 9.0, *) {
-                customUserAgent = (UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? "") + newOptions.appendUserAgent
+                customUserAgent = (UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? "") + " " + newOptions.appendUserAgent
             }
         }
 
