@@ -187,6 +187,12 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
                 customUserAgent = (options?.userAgent)!
             }
         }
+
+        if ((options?.applicationNameForUserAgent)! != "") {
+            if #available(iOS 9.0, *) {
+                configuration.applicationNameForUserAgent =  (options?.applicationNameForUserAgent)!
+            }
+        }
         
         if (options?.clearCache)! {
             clearCache()
